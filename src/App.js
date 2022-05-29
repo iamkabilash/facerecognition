@@ -17,9 +17,10 @@ class App extends React.Component {
     super(props);
     this.state={
       input: "",
-      imageUrl: "",
+      imageUrl: "https://pbs.twimg.com/profile_images/1513517589338763264/eHZuAS68_400x400.jpg",
       box: {},
       route: "signin",
+      isSignedIn: false,
     }
   }
   onInputChange = (event) =>{
@@ -57,13 +58,18 @@ class App extends React.Component {
   }
 
   onRouteChange = (route) =>{
+    if(route === "signout"){
+      this.setState({isSignedIn: false})
+    } else{
+      this.setState({isSignedIn: true})
+    }
     this.setState({route: route});
   }
 
   render(){
     return (
       <div className="App">
-        <Navigation onRouteChange={this.onRouteChange} />
+        <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange} />
         {this.state.route === 'home'
         ? <div>
           <Logo />
