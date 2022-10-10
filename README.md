@@ -1,4 +1,4 @@
-Visit project here : https://iamkabilash.github.io/facerecognition/
+Visit project here : http://face-recognition-amber.vercel.app/
 
 # Getting Started with Create React App
 
